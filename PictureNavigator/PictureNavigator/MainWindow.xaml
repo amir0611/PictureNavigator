@@ -21,7 +21,7 @@
             <TextBox x:Name="myDestinationPathTextBox" VerticalAlignment="Center" IsReadOnly="True" HorizontalAlignment="Left" Width="500" Text="{Binding DestinationPath}"/>
             <Button x:Name="myFolderSelectButton" Content="Browse" VerticalAlignment="Center" Width="90" Command="{Binding SelectFolderCommand}"/>
         </StackPanel>
-        <Image x:Name="myImage" Grid.Row="2" Grid.Column="0" Source="{Binding ImageSource}"></Image>
+        <Image x:Name="myImage" Grid.Row="2" Grid.Column="0" Source="{Binding ImageSource}"/>
 
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center">
             <Button x:Name="myPreviousButton" Content="Previous" VerticalAlignment="Center" Command="{Binding PreviousCommand}"/>
