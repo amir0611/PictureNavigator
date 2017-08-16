@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PictureNavigator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="600">
+        Title="MainWindow" Height="675" Width="600">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="75"/>
             <RowDefinition Height="75"/>
             <RowDefinition Height="400"/>
             <RowDefinition Height="75"/>
@@ -16,9 +17,13 @@
             <TextBox x:Name="myBrowseTextBox" VerticalAlignment="Center" HorizontalAlignment="Left" Width="500" Text="{Binding SourceDirectoryPath}"/>
             <Button x:Name="myBrowseButton" Content="Browse" VerticalAlignment="Center" Width="90" Command="{Binding BrowseCommand}"/>
         </StackPanel>
-        <Image x:Name="myImage" Grid.Row="1" Grid.Column="0" Source="{Binding ImageSource}"></Image>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left">
+            <TextBox x:Name="myDestinationPathTextBox" VerticalAlignment="Center" IsReadOnly="True" HorizontalAlignment="Left" Width="500" Text="{Binding DestinationPath}"/>
+            <Button x:Name="myFolderSelectButton" Content="Browse" VerticalAlignment="Center" Width="90" Command="{Binding SelectFolderCommand}"/>
+        </StackPanel>
+        <Image x:Name="myImage" Grid.Row="2" Grid.Column="0" Source="{Binding ImageSource}"></Image>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center">
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center">
             <Button x:Name="myPreviousButton" Content="Previous" VerticalAlignment="Center" Command="{Binding PreviousCommand}"/>
             <Button x:Name="myNextButton" Content="Next" VerticalAlignment="Center" Command="{Binding NextCommand}"/>
             <Button x:Name="myCopyToFolderButton" Content="Copy To Folder" VerticalAlignment="Center"/>
