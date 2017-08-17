@@ -10,7 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="75"/>
             <RowDefinition Height="75"/>
-            <RowDefinition Height="400"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left">
@@ -21,7 +21,9 @@
             <TextBox x:Name="myDestinationPathTextBox" VerticalAlignment="Center" IsReadOnly="True" HorizontalAlignment="Left" Width="450" Text="{Binding DestinationPath}"/>
             <Button x:Name="myFolderSelectButton" Content="Select Destination" Width="120" VerticalAlignment="Center" Command="{Binding SelectFolderCommand}"/>
         </StackPanel>
-        <Image x:Name="myImage" Grid.Row="2" Grid.Column="0" Source="{Binding ImageSource}"/>
+
+        <Image x:Name="myImage" Grid.Row="2" Grid.Column="0" Source="{Binding ImageSource}" 
+               RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased"/>
 
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center">
             <Button x:Name="myPreviousButton" Content="Previous" VerticalAlignment="Center" Command="{Binding PreviousCommand}"/>

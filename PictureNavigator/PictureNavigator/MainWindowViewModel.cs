@@ -172,7 +172,7 @@ namespace PictureNavigator
             var selectedFileFullPath = allFiles[currentIndex];
             var selectedFile = Path.GetFileName(selectedFileFullPath);
 
-            File.Copy(selectedFileFullPath, DestinationPath + @"/" + selectedFile);
+            File.Copy(selectedFileFullPath, DestinationPath + @"\" + selectedFile,true);
 
         }
 
@@ -210,8 +210,8 @@ namespace PictureNavigator
             var folderBrowserDialog = new FolderBrowserDialog
             {
                 Description = "Select the directory that you want to dump to selected pics.",
-                ShowNewFolderButton = true,
-                RootFolder = Environment.SpecialFolder.Personal
+                ShowNewFolderButton = true
+                //RootFolder = Environment.SpecialFolder.MyComputer
             };
 
             var result = folderBrowserDialog.ShowDialog();
