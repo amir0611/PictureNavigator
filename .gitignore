@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/PictureNavigator/PictureNavigator/bin/Debug
+/PictureNavigator/PictureNavigator/obj/Debug
+/PictureNavigator/PictureNavigator/obj/Debug

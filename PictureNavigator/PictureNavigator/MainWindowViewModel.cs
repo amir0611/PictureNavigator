@@ -18,11 +18,12 @@ namespace PictureNavigator
         private DelegateCommand myPreviousCommand; 
         private DelegateCommand myBrowseCommand;
         private DelegateCommand mySelectFolderCommand;
+        private DelegateCommand myCopyCommand;
         private int currentIndex = -1;
         private ImageSource myImageSource;
-        private string mySourceDirectoryPath;
-        private string myDestinationPath;
-        
+        private string mySourceDirectoryPath = "Select the photo by clicking Browse button";
+        private string myDestinationPath = "Select the detination folder to copy your favourite pics";
+    
 
         public MainWindowViewModel()
         {
@@ -99,7 +100,17 @@ namespace PictureNavigator
                        (myPreviousCommand =
                            new DelegateCommand(MovePrevious, CanMovePrevious));
             }
-        }        
+        }
+
+        public ICommand CopyCommand
+        {
+            get
+            {
+                return myCopyCommand ??
+                       (myCopyCommand =
+                           new DelegateCommand(Copy, CanCopy));
+            }
+        }
 
         private void MovePrevious()
         {
@@ -145,7 +156,24 @@ namespace PictureNavigator
 
                 myNextCommand.RaiseCanExecuteChanged();
                 myPreviousCommand.RaiseCanExecuteChanged();
+                myCopyCommand.RaiseCanExecuteChanged();
             }
+        }
+
+        private void Copy()
+        {
+            var allFiles = myAllImageInSelectedDirectory.ToArray();
+
+            if (!allFiles.Any())
+            {
+                return;
+            }
+
+            var selectedFileFullPath = allFiles[currentIndex];
+            var selectedFile = Path.GetFileName(selectedFileFullPath);
+
+            File.Copy(selectedFileFullPath, DestinationPath + @"/" + selectedFile);
+
         }
 
         private bool NavigateImage(int index)
@@ -190,6 +218,8 @@ namespace PictureNavigator
             if (result == DialogResult.OK)
             {
                 DestinationPath = folderBrowserDialog.SelectedPath;
+
+                myCopyCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -201,6 +231,11 @@ namespace PictureNavigator
         private bool CanMovePrevious()
         {
             return myAllImageInSelectedDirectory.Any() && currentIndex > 0 && currentIndex < myAllImageInSelectedDirectory.Count();
+        }
+
+        private bool CanCopy()
+        {
+            return myAllImageInSelectedDirectory.Any() && !string.IsNullOrEmpty(DestinationPath) && Directory.Exists(DestinationPath);
         }
 
         private void NotifyPropertyChanged(string propertyName)

@@ -14,19 +14,19 @@
             <RowDefinition Height="75"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left">
-            <TextBox x:Name="myBrowseTextBox" VerticalAlignment="Center" HorizontalAlignment="Left" Width="500" Text="{Binding SourceDirectoryPath}"/>
-            <Button x:Name="myBrowseButton" Content="Browse" VerticalAlignment="Center" Width="90" Command="{Binding BrowseCommand}"/>
+            <TextBox x:Name="myBrowseTextBox" VerticalAlignment="Center" IsReadOnly="True" HorizontalAlignment="Left" Width="450" Text="{Binding SourceDirectoryPath}"/>
+            <Button x:Name="myBrowseButton" Content="Select Photo" VerticalAlignment="Center" Width="120" Command="{Binding BrowseCommand}"/>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left">
-            <TextBox x:Name="myDestinationPathTextBox" VerticalAlignment="Center" IsReadOnly="True" HorizontalAlignment="Left" Width="500" Text="{Binding DestinationPath}"/>
-            <Button x:Name="myFolderSelectButton" Content="Browse" VerticalAlignment="Center" Width="90" Command="{Binding SelectFolderCommand}"/>
+            <TextBox x:Name="myDestinationPathTextBox" VerticalAlignment="Center" IsReadOnly="True" HorizontalAlignment="Left" Width="450" Text="{Binding DestinationPath}"/>
+            <Button x:Name="myFolderSelectButton" Content="Select Destination" Width="120" VerticalAlignment="Center" Command="{Binding SelectFolderCommand}"/>
         </StackPanel>
         <Image x:Name="myImage" Grid.Row="2" Grid.Column="0" Source="{Binding ImageSource}"/>
 
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center">
             <Button x:Name="myPreviousButton" Content="Previous" VerticalAlignment="Center" Command="{Binding PreviousCommand}"/>
             <Button x:Name="myNextButton" Content="Next" VerticalAlignment="Center" Command="{Binding NextCommand}"/>
-            <Button x:Name="myCopyToFolderButton" Content="Copy To Folder" VerticalAlignment="Center"/>
+            <Button x:Name="myCopyToFolderButton" Content="Copy To Folder" VerticalAlignment="Center" Command="{Binding CopyCommand}"/>
         </StackPanel>
     </Grid>
 </Window>
