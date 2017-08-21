@@ -1,11 +1,5 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System;
 using System.Windows;
-using System.Windows.Media.Imaging;
 
 namespace PictureNavigator
 {

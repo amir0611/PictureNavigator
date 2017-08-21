@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PictureNavigator"
         mc:Ignorable="d"
         Title="MainWindow" Height="675" Width="600">
     <Grid>
@@ -21,10 +20,8 @@
             <TextBox x:Name="myDestinationPathTextBox" VerticalAlignment="Center" IsReadOnly="True" HorizontalAlignment="Left" Width="450" Text="{Binding DestinationPath}"/>
             <Button x:Name="myFolderSelectButton" Content="Select Destination" Width="120" VerticalAlignment="Center" Command="{Binding SelectFolderCommand}"/>
         </StackPanel>
-
         <Image x:Name="myImage" Grid.Row="2" Grid.Column="0" Source="{Binding ImageSource}" 
                RenderOptions.BitmapScalingMode="HighQuality" RenderOptions.EdgeMode="Aliased"/>
-
         <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center">
             <Button x:Name="myPreviousButton" Content="Previous" VerticalAlignment="Center" Command="{Binding PreviousCommand}"/>
             <Button x:Name="myNextButton" Content="Next" VerticalAlignment="Center" Command="{Binding NextCommand}"/>
